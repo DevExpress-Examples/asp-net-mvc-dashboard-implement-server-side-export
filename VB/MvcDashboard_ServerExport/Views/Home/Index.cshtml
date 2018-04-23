@@ -1,0 +1,11 @@
+<div id="buttonContainer" style="float: left; margin-left: 125px;"></div>
+<div style="position: absolute; left: 0; right: 0; top:50px; bottom:0;">
+    @Html.DevExpress().Dashboard(settings => {
+    settings.Name = "webDashboard";
+    settings.WorkingMode = DevExpress.DashboardWeb.WorkingMode.Viewer;
+    settings.AllowExportDashboard = false;
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Percentage(100);
+    settings.ClientSideEvents.BeforeRender = "onBeforeRender";
+}).GetHtml()
+</div>

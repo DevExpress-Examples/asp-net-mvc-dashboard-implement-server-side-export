@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Dashboard 2" />
+  <DataSources>
+    <SqlDataSource ComponentName="DataSource1">
+      <Name>Countries</Name>
+      <Connection Name="energyStatisticsConnection" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="Countries">
+        <Tables>
+          <Table Name="Countries" />
+        </Tables>
+        <Columns>
+          <Column Table="Countries" Name="Country" />
+          <Column Table="Countries" Name="Latitude" />
+          <Column Table="Countries" Name="Longitude" />
+          <Column Table="Countries" Name="Year" />
+          <Column Table="Countries" Name="EnergyType" />
+          <Column Table="Countries" Name="Production" />
+          <Column Table="Countries" Name="Import" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <PieMap ComponentName="pieMapDashboardItem1" Name="PieMap 1" DataSource="DataSource1" DataMember="Countries" ShapefileArea="Europe" ShapeTitleAttributeName="NAME">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="Latitude" DefaultId="DataItem0" />
+        <Dimension DataMember="Longitude" DefaultId="DataItem1" />
+        <Measure DataMember="Production" DefaultId="DataItem2" />
+        <Dimension DataMember="EnergyType" DefaultId="DataItem3" />
+        <Measure DataMember="Import" DefaultId="DataItem4" />
+      </DataItems>
+      <ViewArea TopLatitude="73.667460324736908" BottomLatitude="20.764596076675296" LeftLongitude="-27.211240858727205" RightLongitude="76.375855915466346" CenterPointLatitude="55.0583983631317" CenterPointLongitude="24.582307528369576" />
+      <MapLegend Visible="true" />
+      <WeightedLegend Visible="true" Position="BottomLeft" />
+      <Latitude DefaultId="DataItem0" />
+      <Longitude DefaultId="DataItem1" />
+      <Argument DefaultId="DataItem3" />
+      <Values>
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem4" />
+      </Values>
+    </PieMap>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" ShowCaption="false" DataSource="DataSource1" DataMember="Countries">
+      <DataItems>
+        <Dimension DataMember="Country" DefaultId="DataItem0" />
+        <Measure DataMember="Production" DefaultId="DataItem1" />
+        <Dimension DataMember="Year" DateTimeGroupInterval="MonthYear" DefaultId="DataItem3" />
+        <Measure DataMember="Production" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+        <GridSparklineColumn>
+          <SparklineValue DefaultId="DataItem2" />
+        </GridSparklineColumn>
+      </GridColumns>
+      <SparklineArgument DefaultId="DataItem3" />
+      <GridOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="pieMapDashboardItem1" />
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

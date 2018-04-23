@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="Dashboard 1" />
+  <DataSources>
+    <SqlDataSource ComponentName="DataSource1">
+      <Name>SalesPerson</Name>
+      <Connection Name="nwindConnection" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="SalesPerson">
+        <Tables>
+          <Table Name="SalesPerson" />
+        </Tables>
+        <Columns>
+          <Column Table="SalesPerson" Name="OrderID" />
+          <Column Table="SalesPerson" Name="Country" />
+          <Column Table="SalesPerson" Name="FirstName" />
+          <Column Table="SalesPerson" Name="LastName" />
+          <Column Table="SalesPerson" Name="ProductName" />
+          <Column Table="SalesPerson" Name="CategoryName" />
+          <Column Table="SalesPerson" Name="OrderDate" />
+          <Column Table="SalesPerson" Name="UnitPrice" />
+          <Column Table="SalesPerson" Name="Quantity" />
+          <Column Table="SalesPerson" Name="Discount" />
+          <Column Table="SalesPerson" Name="Extended Price" />
+          <Column Table="SalesPerson" Name="Sales Person" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" CommandTimeout="0" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" ShowCaption="false" DataSource="DataSource1" DataMember="SalesPerson">
+      <InteractivityOptions MasterFilterMode="Single" />
+      <DataItems>
+        <Dimension DataMember="Sales Person" DefaultId="DataItem0" />
+        <Measure DataMember="Extended Price" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" ShowCaption="false" DataSource="DataSource1" DataMember="SalesPerson" Rotated="true">
+      <DataItems>
+        <Measure DataMember="Extended Price" DefaultId="DataItem0" />
+        <Dimension DataMember="CategoryName" SortOrder="Descending" SortByMeasure="DataItem0" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="RangeFilter 1" DataSource="DataSource1" DataMember="SalesPerson">
+      <DataItems>
+        <Dimension DataMember="OrderDate" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+        <Measure DataMember="Extended Price" DefaultId="DataItem0" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple SeriesType="Area">
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutGroup Weight="143.90243902439025">
+        <LayoutGroup Orientation="Vertical">
+          <LayoutItem DashboardItem="gridDashboardItem1" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="chartDashboardItem1" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="56.097560975609753" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
