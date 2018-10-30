@@ -26,7 +26,7 @@ Namespace MvcDashboard_ServerExport.Controllers
 
                 Dim dateTimeNow As String = Date.Now.ToString("yyyyMMddHHmmss")
                 Dim filePath As String = "~/App_Data/Export/" & dashboardID_Renamed & "_" & dateTimeNow & ".pdf"
-                Dim exporter As New ASPxDashboardExporter(DashboardConfigurator.Default)
+                Dim exporter As New WebDashboardExporter(DashboardConfigurator.Default)
                 exporter.ExportToPdf(dashboardID_Renamed, stream, New System.Drawing.Size(1024, 768), dashboardState_Renamed, pdfOptions)
                 SaveFile(stream, filePath)
 
