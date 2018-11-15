@@ -1,3 +1,13 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [DashboardConfig.cs](./CS/MvcDashboard_ServerExport/App_Start/DashboardConfig.cs) (VB: [DashboardConfig.vb](./VB/MvcDashboard_ServerExport/App_Start/DashboardConfig.vb))
+* [HomeController.cs](./CS/MvcDashboard_ServerExport/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/MvcDashboard_ServerExport/Controllers/HomeController.vb))
+* [Global.asax.cs](./CS/MvcDashboard_ServerExport/Global.asax.cs) (VB: [Global.asax.vb](./VB/MvcDashboard_ServerExport/Global.asax.vb))
+* [DashboardExport.js](./CS/MvcDashboard_ServerExport/Scripts/DashboardExport.js) (VB: [DashboardExport.js](./VB/MvcDashboard_ServerExport/Scripts/DashboardExport.js))
+* [Index.cshtml](./CS/MvcDashboard_ServerExport/Views/Home/Index.cshtml)
+* [_rootLayout.cshtml](./CS/MvcDashboard_ServerExport/Views/Shared/_rootLayout.cshtml)
+<!-- default file list end -->
 # ASP.NET MVC Dashboard - How to implement server-side export
 
 
