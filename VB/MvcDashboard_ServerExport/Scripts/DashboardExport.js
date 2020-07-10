@@ -5,17 +5,19 @@ function onBeforeRender(sender) {
         text: "Export to PDF",
         onClick: function (param) {
             var dashboardID = control.dashboardContainer().id;
-            var dashboardStateJson = control.dashboard().state();
+            var dashboardStateJson = control.getDashboardState();
 
             $.ajax({
                 url: 'Home/ExportDashboardToPdf',
                 data: {
                     DashboardID: dashboardID,
-                    DashboardState: JSON.stringify(dashboardStateJson)
+                    DashboardState: dashboardStateJson
                 },
                 type: 'POST',
-            }).success(function (result) {
-                DevExpress.ui.notify('A dashboard was exported to ' + result, 'success', 5000);
+                dataType: 'json',
+                success: function (result) {
+                    DevExpress.ui.notify('A dashboard was exported to ' + result, 'success', 5000);
+                }
             });
         }
     });

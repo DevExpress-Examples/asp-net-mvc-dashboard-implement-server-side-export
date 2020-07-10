@@ -3,6 +3,7 @@ using DevExpress.DashboardWeb;
 using System;
 using System.IO;
 using System.Web.Mvc;
+using System.Xml;
 
 namespace MvcDashboard_ServerExport.Controllers {
     public class HomeController : Controller {
@@ -15,6 +16,7 @@ namespace MvcDashboard_ServerExport.Controllers {
             using (MemoryStream stream = new MemoryStream()) {
                 string dashboardID = DashboardID;
                 DashboardState dashboardState = new DashboardState();
+                
                 dashboardState.LoadFromJson(DashboardState);
 
                 DashboardPdfExportOptions pdfOptions = new DashboardPdfExportOptions();
@@ -22,7 +24,7 @@ namespace MvcDashboard_ServerExport.Controllers {
                 pdfOptions.DashboardStatePosition = DashboardStateExportPosition.Below;
 
                 string dateTimeNow = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string filePath = "~/App_Data/Export/" + dashboardID + "_" + dateTimeNow + ".pdf";
+                string filePath = @"~/App_Data/Export/" + dashboardID + "_" + dateTimeNow + ".pdf";
                 var exporter = new WebDashboardExporter(DashboardConfigurator.Default);
                 exporter.ExportToPdf(dashboardID, stream, new System.Drawing.Size(1024, 768), dashboardState, pdfOptions);
                 SaveFile(stream, filePath);
