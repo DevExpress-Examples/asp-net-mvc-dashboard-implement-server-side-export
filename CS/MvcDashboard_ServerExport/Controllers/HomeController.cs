@@ -2,6 +2,7 @@ using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
 using System;
 using System.IO;
+using System.Net;
 using System.Web.Mvc;
 using System.Xml;
 
@@ -24,19 +25,24 @@ namespace MvcDashboard_ServerExport.Controllers {
                 pdfOptions.DashboardStatePosition = DashboardStateExportPosition.Below;
 
                 string dateTimeNow = DateTime.Now.ToString("yyyyMMddHHmmss");
-                string filePath = @"~/App_Data/Export/" + dashboardID + "_" + dateTimeNow + ".pdf";
+                string serverPath = Server.MapPath(@"~/App_Data/Export");
+                if(!Directory.Exists(serverPath)) {
+                    Directory.CreateDirectory(serverPath);
+                }
+                string filePath = Path.Combine(serverPath, dashboardID);
+                string uniqueId = "_" + dateTimeNow + ".pdf";
                 var exporter = new WebDashboardExporter(DashboardConfigurator.Default);
                 exporter.ExportToPdf(dashboardID, stream, new System.Drawing.Size(1024, 768), dashboardState, pdfOptions);
-                SaveFile(stream, filePath);
+                SaveFile(stream, filePath + uniqueId);
 
                 ContentResult result = new ContentResult();
-                result.Content = filePath;
+                result.Content = filePath + uniqueId;
                 return result;
             }
         }
 
         private void SaveFile(MemoryStream stream, string path) {
-            var fileStream = System.IO.File.Create(Server.MapPath(path));
+            var fileStream = System.IO.File.Create(path);
             stream.WriteTo(fileStream);
             fileStream.Close();
         }

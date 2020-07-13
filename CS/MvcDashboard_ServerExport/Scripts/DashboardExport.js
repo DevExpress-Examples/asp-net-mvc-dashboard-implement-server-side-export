@@ -14,9 +14,8 @@ function onBeforeRender(sender) {
                     DashboardState: dashboardStateJson
                 },
                 type: 'POST',
-                dataType: 'json',
                 success: function (result) {
-                    DevExpress.ui.notify('A dashboard was exported to ' + result, 'success', 5000);
+                    DevExpress.ui.notify({ message: 'A dashboard was exported to ' + result, shading: true }, "success", 5000);
                 }
             });
         }
