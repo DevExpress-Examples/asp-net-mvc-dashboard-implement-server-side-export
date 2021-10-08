@@ -2,6 +2,7 @@
 <div style="position: absolute; left: 0; right: 0; top:50px; bottom:0;">
     @Html.DevExpress().Dashboard(settings => {
     settings.Name = "webDashboard";
+    settings.ControllerName = "DefaultDashboard";
     settings.WorkingMode = DevExpress.DashboardWeb.WorkingMode.Viewer;
     settings.AllowExportDashboard = false;
     settings.Width = Unit.Percentage(100);
