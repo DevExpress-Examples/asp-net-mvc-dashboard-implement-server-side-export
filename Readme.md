@@ -3,12 +3,6 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T590027)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
-
-* [HomeController.cs](./CS/MvcDashboard_ServerExport/Controllers/HomeController.cs)
-* [DashboardExport.js](./CS/MvcDashboard_ServerExport/Scripts/DashboardExport.js)
-<!-- default file list end -->
 
 # Dashboard for MVC - How to implement server-side export
 
@@ -16,6 +10,13 @@ This example demonstrates how to export a dashboard displayed using the <a hre
 
 * The <a href="https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.Scripts.ASPxClientDashboard.BeforeRender">ASPxClientDashboard.BeforeRender</a> event is handled to obtain the client-side <a href="https://docs.devexpress.com/Dashboard/js-DevExpress.Dashboard.DashboardControl">DashboardControl</a> with the <a href="https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.Scripts.ASPxClientDashboard.GetDashboardControl">ASPxClientDashboard.GetDashboardControl</a> method.
 * The AJAX request is used to send the dashboard identifier and state to the server side. On the server side, these values are received as action method parameters and passed to the <a href="https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.WebDashboardExporter.ExportToPdf.overloads">WebDashboardExporter.ExportToPdf</a> method.
+
+<!-- default file list -->
+## Files to look at
+
+* [HomeController.cs](./CS/MvcDashboard_ServerExport/Controllers/HomeController.cs)
+* [DashboardExport.js](./CS/MvcDashboard_ServerExport/Scripts/DashboardExport.js)
+<!-- default file list end -->
 
 ## Documentation
 
