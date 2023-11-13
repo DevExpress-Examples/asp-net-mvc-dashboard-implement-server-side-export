@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Dashboard for MVC - How to implement server-side export
+# BI Dashboard for MVC - How to implement server-side export
 
 This example demonstrates how to export a dashboard displayed using the <a href="https://docs.devexpress.com/Dashboard/16977/Building-the-Designer-and-Viewer-Applications">ASP.NET MVC Dashboard extension</a> on the server side using the <a href="https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.WebDashboardExporter">WebDashboardExporter</a> class. The following API is used:
 
